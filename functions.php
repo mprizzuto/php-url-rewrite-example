@@ -11,8 +11,10 @@ enableErrorReporting();
 function queryString() {
 	if (!$_SERVER['QUERY_STRING']) {
 		return 'query: /';
+		// return "";
 	}
-	return 'query: ' . $_SERVER['QUERY_STRING'];
+	// return 'query: ' . $_SERVER['QUERY_STRING'];
+	return $_SERVER['QUERY_STRING'];
 }
 
 
@@ -35,5 +37,29 @@ function currentRoute() {
 
 function renderTemplate() {
 	include("templates/pages/" . currentRoute() . ".php");
+}
+
+function is404() {
+	switch ($_GET['page']) {
+		case 'home':
+			renderTemplate();
+			break;
+
+		case 'about':
+			renderTemplate();
+			break;
+
+		case 'contact':
+			renderTemplate();
+			break;
+
+		case 'projects':
+			renderTemplate();
+			break;	
+		
+		default:
+			echo '404!';
+			break;
+	}
 }
 
