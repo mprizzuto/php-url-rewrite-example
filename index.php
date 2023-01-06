@@ -1,5 +1,4 @@
 <?php include('header.php'); ?>
 
-<?php renderTemplate(); ?>
-
+<?php is404(); ?>
 <?php include('footer.php'); ?>
